@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/users'); // never used
 
 var app = express();
 // my imports  
@@ -19,7 +19,7 @@ dotenv.config()
 
 
 //connect to Database with mongoose
-mongoose.connect(process.env.DATABASE_ACCESS,()=>console.log("DataBase Connected"))
+mongoose.connect(process.env.DATABASE_ACCESS,()=>console.log("DataBase Connected"), {useNewUrlParser: true, useUnifiedTopology: true})
 app.use(express.json())
 app.use(cors())
 app.use(session({secret:process.env.DATABASE_SECRET,resave:false,saveUninitialized:true}));

@@ -172,7 +172,10 @@ router.get('/logout',(req,res) => {
     res.redirect('/');
 });
 
+// router.get('/',(req,res) => {
+//     res.send('Server side');
 
+// });
 
 
 module.exports = router;

@@ -23,6 +23,10 @@ var bodyParser = require('body-parser')
  // };
   
 router.post('/signup',async (request,response)=> {
+    if(!Object.keys(req.body).length){
+        response.status(500).send('Account already exist with this email').end();
+    }
+
     const saltPassword = await bcrypt.genSalt(10);
     const securedPassword = await bcrypt.hash(request.body.password,saltPassword)
 
